@@ -1,6 +1,8 @@
-hello = () => {
-    return `<div>Hello World!</div>`;
-};
+export const load = function () {
+    const $root = $('#root');
+    $root.append("Hello World!");
+}
 
-const $root = $('#root');
-$root.append(hello());
+$(function () {
+    load();
+});
