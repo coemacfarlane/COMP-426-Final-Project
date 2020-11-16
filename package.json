@@ -1,0 +1,23 @@
+{
+  "name": "comp-426-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "render.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ach1lles11/COMP-426-Final-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ach1lles11/COMP-426-Final-Project/issues"
+  },
+  "homepage": "https://github.com/ach1lles11/COMP-426-Final-Project#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1"
+  }
+}
