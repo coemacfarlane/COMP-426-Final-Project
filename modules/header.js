@@ -13,7 +13,13 @@ function buildHeader() {
     // if user logged in
     if (loggedIn) {
         // link to profile page
-        navHTML += '<li class="nav-item"><a class="nav-link" id="nav-username" href="profile.html">User</a></li>'
+        navHTML += '<li class="nav-item dropdown">' + 
+                    '<a class="nav-link dropdown-toggle" id="nav-username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>'+ 
+                    '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'+
+                        '<a class="dropdown-item" href="profile.html">My Profile</a>' +
+                        '<a class="dropdown-item" id="logout-btn" href="login.html">Logout</a>' +
+                    '</div>' +
+                '</li>';
     }
     else {}
     // temporarily available no matter what for testing etc.
