@@ -4,6 +4,7 @@
     --blue-sat: #03258C;
     --blue-desat: #18358C;
     --mint: #5ABF90;
+    --dark-mint: #2f6e51;
     --yellow: #F2CA50;
     --light-grey: #ececec;
     --grey: #A3A3A3;
@@ -40,7 +41,7 @@ p {
     border-bottom: solid var(--mint) 2px;
 }
 .btn > p {
-    padding-top: 3px;
+    padding-top: 4px;
 }
 
 .btn.mint {
@@ -60,7 +61,7 @@ nav {
 }
 
 .navbar {
-    background-color: var(--light-grey) !important;
+    background-color: var(--dark-mint) !important;
     /* background-image: linear-gradient(rgb(200,200,200) 80%, rgb(180,180,180)); */
 }
 
@@ -238,6 +239,31 @@ input.invalid {
 }
 
 /* PROFILE PAGE */
-#profile-username {
+.profile-username-col {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+@keyframes slide-name {
+    from {
+        transform: rotate(90deg) translateX(50px);
+    }
+    to {
+        transform: rotate(90deg) translateX(100%);
+    }
+}
+
+.profile-username-col #profile-username {
     transform: rotate(90deg) translateX(50px);
+
+    animation: slide-name 1.5s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+.profile-username-col #profile-username-hl {
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    background: var(--yellow);
 }

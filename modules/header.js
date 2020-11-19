@@ -2,7 +2,7 @@ function buildHeader() {
     //temporary, need to build database to check if users exist
     let loggedIn = true;
     
-    let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
+    let navHTML = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">' +
                     '<a class="navbar-brand" href="#">Color<b>426</b></a>' +
                     '<div class="navbar-expand" id="navbarNav">' +
                         '<ul class="navbar-nav">' +
