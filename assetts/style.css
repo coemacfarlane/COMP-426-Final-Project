@@ -4,6 +4,7 @@
     --blue-sat: #03258C;
     --blue-desat: #18358C;
     --mint: #5ABF90;
+    --dark-mint: #2f6e51;
     --yellow: #F2CA50;
     --light-grey: #ececec;
     --grey: #A3A3A3;
@@ -49,7 +50,7 @@ nav {
 }
 
 .navbar {
-    background-color: var(--light-grey) !important;
+    background-color: var(--dark-mint) !important;
     /* background-image: linear-gradient(rgb(200,200,200) 80%, rgb(180,180,180)); */
 }
 
