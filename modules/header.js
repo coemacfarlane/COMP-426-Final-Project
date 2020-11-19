@@ -13,6 +13,7 @@ function buildHeader() {
     // if user logged in
     if (loggedIn) {
         // link to profile page
+        navHTML += '<li class="nav-item"><a class="nav-link" id="nav-username" href="profile.html">User</a></li>'
     }
     else {}
     // temporarily available no matter what for testing etc.
