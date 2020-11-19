@@ -40,6 +40,17 @@ p {
 .btn-simple:hover {
     border-bottom: solid var(--mint) 2px;
 }
+.btn > p {
+    padding-top: 4px;
+}
+
+.btn.mint {
+    background: var(--mint);
+    border: none;
+}
+.btn.mint:hover {
+    background: var(--dark-mint);
+}
 
 /* ------------ ELEMENT STYLING --------------- */
 
@@ -225,4 +236,34 @@ input.invalid {
 .explore .search-wrap .form-control {
     background: rgba(255, 255, 255, 0.5);
     width: calc(100% - 50px);
+}
+
+/* PROFILE PAGE */
+.profile-username-col {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+@keyframes slide-name {
+    from {
+        transform: rotate(90deg) translateX(50px);
+    }
+    to {
+        transform: rotate(90deg) translateX(100%);
+    }
+}
+
+.profile-username-col #profile-username {
+    transform: rotate(90deg) translateX(50px);
+
+    animation: slide-name 1.5s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+.profile-username-col #profile-username-hl {
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    background: var(--yellow);
 }
