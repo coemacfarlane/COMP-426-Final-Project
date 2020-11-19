@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- <title>Color Picker</title> -->
+
+        <!-- JQEURY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+        <!-- BUILD HEAD -->
+        <script type="module" src="../modules/headblade.js"></script>
+    </head>
+
+    <header>
+        
+    </header>
+
+    <body>
+        <div class="container d-flex flex-row justify-content-center">
+            <div class="row login-width">
+                <div class="col-md-12 d-flex flex-column justify-content-center">
+                    <!-- page title -->
+                    <div class="container title">
+                        <h1 class="display-1">Login</h1>
+                        <div class="highlight-bg"></div>
+                    </div>
+                    <!-- start login form -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- USE CLASSES .valid AND .invalid WHEN SOMEONE TRIES TO LOGIN -->
+                                <input class="form-control form-control-lg" type="text" id="username" placeholder="Username">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control form-control-lg" type="text" id="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row py-3 px-1">
+                            <button type="button" class="btn btn-simple login-btn mr-3" id="login-btn"><p>Login</p></button>
+                            <button type="button" class="btn btn-simple signup-btn mx-3" id="signup-btn"><p>Create Account</p></button>
+                        </div>
+                    </div>
+                    <!-- end login form -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Include links to JavaScript files below -->
+        <!-- TODO: Add link to jQuery here -->
+        <!-- throwing error: disallowed MIME type <script src="node_modules/jquery/dist/jquery.js"></script> -->
+        <!-- <script src="render.js" type="module"></script> -->
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- <title>Color Picker</title> -->
+
+        <!-- JQEURY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+        <!-- BUILD HEAD -->
+        <script type="module" src="../modules/headblade.js"></script>
+    </head>
+
+    <header></header>
+
+    <body class="explore">
+        <!-- start header title -->
+        <div class="container-fluid explore-hero">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <h1 class="display-1"><b>Explore</b></h1>
+                        <div class="wave-wrapper">
+                            <div class="wavy-line yellow"></div>
+                        </div>
+                        <div class="star-wrapper">
+                            <div id="star-five"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header title -->
+        <!-- start search bar -->
+        <div class="container-fluid py-3 light-grey-bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Search form -->
+                    <form class="form-inline search-wrap">
+                        <input class="form-control form-control-md mr-3" type="text" placeholder="Search"
+                        aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- end search bar -->
+
+        <div id="root"></div>
+        <!-- Include links to JavaScript files below -->
+        <!-- TODO: Add link to jQuery here -->
+        <!-- throwing error: disallowed MIME type <script src="node_modules/jquery/dist/jquery.js"></script> -->
+        <!-- <script src="render.js" type="module"></script> -->
+    </body>
+</html>
