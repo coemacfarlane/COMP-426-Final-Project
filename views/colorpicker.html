@@ -11,33 +11,22 @@
 
         <!-- BUILD HEAD -->
         <script type="module" src="../modules/headblade.js"></script>
+
+        <!-- SPECIFIC TO COLOR PICKER -->
+        <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+        <script type="module" src="../modules/color_picker/color_picker.js" defer></script>
     </head>
 
     <header>
-        
     </header>
 
-    <body>
+    <body class="">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
-                    <div class="profile-username-col">
-                        <div id="profile-username-hl"></div>
-                        <h1 class="display-1" id="profile-username"><b>Username</b></h1>
-                    </div>
+                <div class="col-md-12">
+                    <div id="picker"></div>
                 </div>
-                <div class="col-md-10">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 py-3 pt-5 d-flex flex-row justify-content-between">
-                                <h2>My Palettes</h2>
-                                <a role="button" class="btn btn-secondary mint" href="colorpicker.html"><p>New +</p></a>
-                            </div>
-                        </div>
-                        <div class="row" id="root" style="height: 150vh;">
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-7"></div>
             </div>
         </div>
 
