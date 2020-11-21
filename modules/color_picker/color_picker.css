@@ -1,0 +1,38 @@
+.side-bar {
+    background: var(--light-grey);
+    padding: 20px 30px !important;
+}
+
+.palette-container {
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.palette-container .color {
+    width: 20%;
+    height: 100%;
+}
+
+#picker-row {
+    height: calc(100vh - 55px);
+}
+
+#picker {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#picker .IroColorPicker {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#picker .IroSlider {
+    align-self: flex-end;
+}

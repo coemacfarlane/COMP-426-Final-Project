@@ -32,11 +32,13 @@ $(document).ready(function() {
     // ----- INITIALIZE -----
     var colorPicker = new iro.ColorPicker("#picker", {
         width: 320,
-        layoutDirection: 'horizontal',
+        layoutDirection: 'vertical',
+        margin: 30,
         layout: [
             {
                 component: iro.ui.Wheel,
                 options: {
+                    width: 360
                 }
             },
             {
@@ -50,7 +52,7 @@ $(document).ready(function() {
                 component: iro.ui.Slider,
                 options: {
                     sliderType: 'value',
-                    activeIndex: 1
+                    activeIndex: 1,
                 }
             },
             {
@@ -73,7 +75,9 @@ $(document).ready(function() {
                     sliderType: 'value',
                     activeIndex: 4
                 }
-            }
+            },
+            
+            
         ]
     });      
     // set colors randomly when page first loaded
