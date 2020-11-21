@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- <title>Color Picker</title> -->
+
+        <!-- JQEURY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+        <!-- BUILD HEAD -->
+        <script type="module" src="../modules/headblade.js"></script>
+
+        <!-- SPECIFIC TO COLOR PICKER -->
+        <link rel="stylesheet" href="../modules/color_picker/color_picker.css">
+        <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+        <script type="module" src="../modules/color_picker/color_picker.js" defer></script>
+    </head>
+
+    <header>
+    </header>
+
+    <body class="">
+        <div class="container-fluid">
+            <div class="row" id="picker-row">
+                <div class="col-md-5 side-bar">
+                    <div id="palette-form">
+                        <div class="palette-container">
+                            <div class="color" id="one"></div>
+                            <div class="color" id="two"></div>
+                            <div class="color" id="three"></div>
+                            <div class="color" id="four"></div>
+                            <div class="color" id="five"></div>
+                        </div>
+                        <input class="form-control my-3" type="text" placeholder="Enter palette name">
+                        <input class="form-control form-control-sm  my-3" type="text" placeholder="Tags">
+                    </div>
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="random-btn" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                              Random
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="analog-btn" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                              Analogous
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="mono-btn" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                              Monochromatic
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="compl-btn" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Complementary
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="split-compl-btn" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Split Complementary
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 py-5" id="picker-container">
+                    <div id="picker"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Include links to JavaScript files below -->
+        <!-- TODO: Add link to jQuery here -->
+        <!-- throwing error: disallowed MIME type <script src="node_modules/jquery/dist/jquery.js"></script> -->
+        <!-- <script src="render.js" type="module"></script> -->
+    </body>
+</html>
