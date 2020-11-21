@@ -1,3 +1,4 @@
+// ------ COLOR ALGORITHMS --------
 function defaultRandomizer() {
     let colors = [];
 
@@ -24,6 +25,8 @@ function complementary() {}
 // one of one hue, two hues splitting difference around opposite hue
 // ex: HSV format (181, 70, 88) / (39, 80, 58) (39, 75, 88) / (5, 60, 58) (5, 65, 88)
 function splitComplementary() {}
+
+
 
 // ON DOC LOAD
 $(document).ready(function() {
@@ -88,4 +91,15 @@ $(document).ready(function() {
     colorPicker.on('color:change', function(color) {
         console.log('color changed:', color.index);
     });
+
+    // --------- SAVING COLOR PALETTE ---------
+    // open modal saying palette is saved,
+    // auto close and clear input fields
+    $('#save-palette-btn').click(function() {
+        setTimeout(function() {
+            $('#savedModal').modal('toggle');
+            document.getElementById('palette-tags-field').value = "";
+            document.getElementById('palette-name-field').value = "";
+        }, 2500)
+    })
 })
