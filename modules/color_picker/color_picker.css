@@ -36,3 +36,21 @@
 #picker .IroSlider {
     align-self: flex-end;
 }
+
+/* wheel handle svgs */
+.IroHandle circle {
+    stroke: #fff;
+}
+.IroHandle circle:nth-child(1) {
+    stroke-width: 0;
+}
+
+.IroHandle--isActive circle:nth-child(1) {
+    stroke-width: 3px;
+}
+.IroSlider .IroHandle--isActive circle:nth-child(1) {
+    stroke-width: 0px;
+}
+.IroSlider .IroHandle--isActive circle:nth-child(2) {
+    stroke-width: 3px;
+}
