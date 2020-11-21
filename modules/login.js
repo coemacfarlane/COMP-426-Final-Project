@@ -1,25 +1,14 @@
-emaildocument.getElementById()
+const login = document.getElementById("login-btn");
+login.addEventListener('click', (e) => {
+  e.preventDefault();
 
-// Create an account
-firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in 
-    // ...
+  // Get user info
+  const email = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  
+  // Sign up the user
+  auth.signInWithEmailAndPassword(email, password).then(user => {
+    console.log(user);
   })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ..
-  });
-
-
-// Sign into your account
-firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in 
-    // ...
 })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-});
+
