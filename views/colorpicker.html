@@ -24,6 +24,7 @@
     <body class="">
         <div class="container-fluid">
             <div class="row" id="picker-row">
+                <!-- START SIDEBAR CONTENT -->
                 <div class="col-md-5 side-bar">
                     <div id="palette-form">
                         <div class="palette-container">
@@ -33,8 +34,11 @@
                             <div class="color" id="four"></div>
                             <div class="color" id="five"></div>
                         </div>
-                        <input class="form-control my-3" type="text" placeholder="Enter palette name">
-                        <input class="form-control form-control-sm  my-3" type="text" placeholder="Tags">
+                        <input class="form-control my-3" type="text" id="palette-name-field" placeholder="Enter palette name">
+                        <input class="form-control form-control-sm  my-3" type="text" id="palette-tags-field" placeholder="Tags">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savedModal" id="save-palette-btn">
+                            Save
+                        </button>
                     </div>
                     <div>
                         <div class="form-check">
@@ -69,6 +73,26 @@
                         </div>
                     </div>
                 </div>
+                <!-- END SIDEBAR CONTENT -->
+                <!-- START MODAL -->
+                <div class="modal fade" id="savedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h1>Palette Saved!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL -->
+  
+                <!-- START COLOR PICKER -->
                 <div class="col-md-7 py-5" id="picker-container">
                     <div id="picker"></div>
                 </div>
