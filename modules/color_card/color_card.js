@@ -1,8 +1,8 @@
-function renderCard() {
+export default function renderCard() {
     let c1, c2, c3, c4, c5 = "#fff" ;
     let name, creator = "test";
 
-    return cardHtml = '<div class="col-md-4 card color-card">' +
+    let cardHtml = '<div class="col-md-4 card color-card">' +
         '<div class="color-container">' +
             '<div class="color" style="background: '+ c1 +';"></div>' +
             '<div class="color" style="background: '+ c2 +';"></div>' +
@@ -15,6 +15,7 @@ function renderCard() {
             '<h6>'+ creator +'</h6>' +
         '</div>' +
     '</div>';
+    return cardHtml;
 }
 
 $(document).ready(function() {
