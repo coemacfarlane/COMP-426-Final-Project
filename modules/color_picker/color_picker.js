@@ -1,3 +1,5 @@
+var colorPicker;
+
 // ------ COLOR ALGORITHMS --------
 function defaultRandomizer() {
     let colors = [];
@@ -12,19 +14,57 @@ function defaultRandomizer() {
 }
 
 // similar saturation and value, hues spaced out by approx. equal differences
-function analogous() {}
+function analogous() {
+    console.log('analogous')
+}
 
 // same hue, 2 with same saturation diff values, 3 with same sat. diff values
 // ex: HSV format (282, 74, 38) (282, 44, 90) (282, 74, 88) (282, 44, 38) (282, 74, 68)
-function monochromatic() {}
+function monochromatic() {
+    console.log('monochromatic')
+}
 
 // opposite hues, 3 of one hue, 2 of other hue, similar sat. and value
 // ex: HSV format (181, 80, 58) (181, 60, 100) (181, 70, 88) (23, 90, 58) (23, 70, 88)
-function complementary() {}
+function complementary() {
+    console.log('complementary')
+}
 
 // one of one hue, two hues splitting difference around opposite hue
 // ex: HSV format (181, 70, 88) / (39, 80, 58) (39, 75, 88) / (5, 60, 58) (5, 65, 88)
-function splitComplementary() {}
+function splitComplementary() {
+    console.log('split')
+}
+
+// generate a new palette, ran on clicking the generate button
+function generateNewPalette() {
+    let radios = document.getElementsByClassName('form-check-input');
+    let checkedEl = '';
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            checkedEl = radios[i].id;
+        }
+    }
+    // brute forced to save time on complexity ¯\_(ツ)_/¯
+    if (checkedEl == 'random-btn') {
+        colorPicker.setColors(defaultRandomizer())
+    }
+    else if (checkedEl == 'analog-btn') {
+        colorPicker.setColors(analogous())
+    }
+    else if (checkedEl == 'mono-btn') {
+        colorPicker.setColors(monochromatic())
+    }
+    else if (checkedEl == 'compl-btn') {
+        colorPicker.setColors(complementary())
+    }
+    else if (checkedEl == 'split-compl') {
+        colorPicker.setColors(splitComplementary())
+    }
+    loadPaletteDisplay(colorPicker.colors);
+    var prevActiveIndex = colorPicker.color.index;
+    document.getElementsByClassName('IroSliderBg')[prevActiveIndex].setAttribute("style", "stroke: var(--grey) !important; stroke-width: 3px;")
+}
 
 // ----- UPDATE PAGE AND DATA FUNCTIONS ------
 function loadPaletteDisplay(colors) {
@@ -37,7 +77,7 @@ function loadPaletteDisplay(colors) {
 // ON DOC LOAD
 $(document).ready(function() {
     // ----- INITIALIZE -----
-    var colorPicker = new iro.ColorPicker("#picker", {
+    colorPicker = new iro.ColorPicker("#picker", {
         width: 360,
         layoutDirection: 'vertical',
         margin: 30,
@@ -88,6 +128,7 @@ $(document).ready(function() {
             
         ]
     });      
+    
     // set colors randomly when page first loaded
     colorPicker.setColors(defaultRandomizer())
     // load the palette display in the sidebar
@@ -117,4 +158,7 @@ $(document).ready(function() {
             document.getElementById('palette-name-field').value = "";
         }, 2500)
     })
+
+    // -------- GENERATING NEW COLOR PALETTE --------
+    $('#color-generate-btn').on('click', generateNewPalette)
 })
