@@ -1,3 +1,24 @@
+import renderCard from './color_card/color_card.js'
+
+const paletteList = document.querySelector(".palette-container");
+
+const setupPalettes = (data) => {
+
+  let html = ''
+  data.forEach(doc => {
+    const palette = doc.data();
+    console.log(palette);
+  });
+}
+
+renderCard();
+
+// Get data
+db.collection("palettes").get().then(snapshot => {
+  setupPalettes(snapshot.docs);
+}) 
+
+
 if (document.getElementById("login-btn") != null) {
   const login = document.getElementById("login-btn");
   login.addEventListener('click', (e) => {
@@ -14,7 +35,14 @@ if (document.getElementById("login-btn") != null) {
   })
 }
 
-// const logout = $('head').getElementById("logout-btn");
+const logout = $("#logout-btn")
+// document.getElementById("logout-btn");
+logout.on("click", function() {
+  auth.signOut().then(() => {
+            console.log("User signed out")
+        })
+})
+
 // console.log(logout);
 // logout.addEventListener('click', (e) => {
 //     e.preventDefault();
