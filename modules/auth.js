@@ -95,6 +95,7 @@ if (document.getElementById("login-btn") != null) {
     // Sign up the user
     auth.signInWithEmailAndPassword(email, password).then((user) => {
       console.log("user signed in", user);
+      window.location.href = "./profile.html";
     });
   });
 }
