@@ -1,4 +1,3 @@
-import { event } from "jquery";
 import renderCard from "./color_card/color_card.js";
 
 const paletteList = document.querySelector("#root");
@@ -36,15 +35,41 @@ auth.onAuthStateChanged((user) => {
 });
 
 const createButton = $("#save-palette-btn");
-// document.getElementById("logout-btn");
 createButton.on("click", function () {
   event.preventDefault();
+  const color1 = getRGB($("#color-1").css("background-color"));
+  const color2 = getRGB($("#color-2").css("background-color"));
+  const color3 = getRGB($("#color-3").css("background-color"));
+  const color4 = getRGB($("#color-4").css("background-color"));
+  const color5 = getRGB($("#color-5").css("background-color"));
+
+  function componentToHex(c) {
+    const num = parseInt(c)
+    const hex = num.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  }
+
+  function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
+  function getRGB(str){
+    var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
+    return match ? {
+      red: match[1],
+      green: match[2],
+      blue: match[3]
+    } : {};
+  }
+
+  const paletteName = document.getElementById("palette-name-field").value;
+  console.log(paletteName)
   db.collection('palettes').add({
-    color1: $("color-1").value,
-    color2: $("color-2").value,
-    color3: $("color-3").value,
-    color4: $("color-4").value,
-    color5: $("color-5").value
+    name: paletteName,
+    color1: rgbToHex(color1.red, color1.blue, color1.green),
+    color2: rgbToHex(color2.red, color2.blue, color2.green),
+    color3: rgbToHex(color3.red, color3.blue, color3.green),
+    color4: rgbToHex(color4.red, color4.blue, color4.green),
+    color5: rgbToHex(color5.red, color5.blue, color5.green)
   });
 });
 
