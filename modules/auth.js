@@ -6,16 +6,18 @@ const setupPalettes = (data) => {
     let html = "";
     data.forEach((doc) => {
       const palette = doc.data();
-      const card = renderCard(
-        palette.name,
-        palette.creator,
-        palette.color1,
-        palette.color2,
-        palette.color3,
-        palette.color4,
-        palette.color5
-      );
-      html += card;
+      if (palette.creator == firebase.auth().currentUser.email) {
+        const card = renderCard(
+          palette.name,
+          palette.creator,
+          palette.color1,
+          palette.color2,
+          palette.color3,
+          palette.color4,
+          palette.color5
+        );
+        html += card;
+      }
     });
     paletteList.innerHTML = html;
   } else {
@@ -25,14 +27,14 @@ const setupPalettes = (data) => {
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log("user currently signed in")
+    console.log("user currently signed in");
     db.collection("palettes")
       .get()
       .then((snapshot) => {
         setupPalettes(snapshot.docs);
       });
   } else {
-    console.log("user currently signed out")
+    console.log("user currently signed out");
     setupPalettes([]);
   }
 });
@@ -47,7 +49,7 @@ createButton.on("click", function () {
   const color5 = getRGB($("#color-5").css("background-color"));
 
   function componentToHex(c) {
-    const num = parseInt(c)
+    const num = parseInt(c);
     const hex = num.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
   }
@@ -56,24 +58,28 @@ createButton.on("click", function () {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
 
-  function getRGB(str){
-    var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
-    return match ? {
-      red: match[1],
-      green: match[2],
-      blue: match[3]
-    } : {};
+  function getRGB(str) {
+    var match = str.match(
+      /rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/
+    );
+    return match
+      ? {
+          red: match[1],
+          green: match[2],
+          blue: match[3],
+        }
+      : {};
   }
 
   const paletteName = document.getElementById("palette-name-field").value;
-  db.collection('palettes').add({
+  db.collection("palettes").add({
     name: paletteName,
-    creator: "me",
+    creator: firebase.auth().currentUser.email,
     color1: rgbToHex(color1.red, color1.blue, color1.green),
     color2: rgbToHex(color2.red, color2.blue, color2.green),
     color3: rgbToHex(color3.red, color3.blue, color3.green),
     color4: rgbToHex(color4.red, color4.blue, color4.green),
-    color5: rgbToHex(color5.red, color5.blue, color5.green)
+    color5: rgbToHex(color5.red, color5.blue, color5.green),
   });
 });
 
