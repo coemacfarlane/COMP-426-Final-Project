@@ -133,6 +133,35 @@ function complementary() {
 // ex: HSV format (181, 70, 88) / (39, 80, 58) (39, 75, 88) / (5, 60, 58) (5, 65, 88)
 function splitComplementary() {
   console.log("split");
+  let h = Math.floor(Math.random() * 360);
+  let s = Math.floor(Math.random() * 100);
+  let v = Math.floor(Math.random() * 100);
+  if (s < 30) {
+    s = 30;
+  }
+  if (v < 50) {
+    v = 50;
+  }
+  if (v > 85) {
+    v = 85;
+  }
+  let baseColor = "hsl(" + h + ", " + s + ", " + v + ")";
+  let colors = [];
+  colors[0] = baseColor;
+  let h12 = h + 163;
+  if (h12 > 360) {
+    h12 = h12 - 360;
+  }
+  let h34 = h12 + 34;
+  if (h34 > 360) {
+    h34 = h34 - 360;
+  }
+
+  colors[1] = "hsl(" + h12 + "," + (s - 10) + "," + (v - 30) + ")";
+  colors[2] = "hsl(" + h12 + "," + (s - 5) + "," + v + ")";
+  colors[3] = "hsl(" + h34 + "," + (s + 10) + "," + (v - 30) + ")";
+  colors[4] = "hsl(" + h34 + "," + (s + 5) + "," + v + ")";
+  return colors;
 }
 
 // generate a new palette, ran on clicking the generate button
@@ -153,7 +182,7 @@ function generateNewPalette() {
     colorPicker.setColors(monochromatic());
   } else if (checkedEl == "compl-btn") {
     colorPicker.setColors(complementary());
-  } else if (checkedEl == "split-compl") {
+  } else if (checkedEl == "split-compl-btn") {
     colorPicker.setColors(splitComplementary());
   }
   loadPaletteDisplay(colorPicker.colors);

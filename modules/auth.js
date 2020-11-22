@@ -25,12 +25,14 @@ const setupPalettes = (data) => {
 
 auth.onAuthStateChanged((user) => {
   if (user) {
+    console.log("user currently signed in")
     db.collection("palettes")
       .get()
       .then((snapshot) => {
         setupPalettes(snapshot.docs);
       });
   } else {
+    console.log("user currently signed out")
     setupPalettes([]);
   }
 });
@@ -66,7 +68,7 @@ createButton.on("click", function () {
   const paletteName = document.getElementById("palette-name-field").value;
   db.collection('palettes').add({
     name: paletteName,
-    creator: currentUser,
+    creator: "me",
     color1: rgbToHex(color1.red, color1.blue, color1.green),
     color2: rgbToHex(color2.red, color2.blue, color2.green),
     color3: rgbToHex(color3.red, color3.blue, color3.green),
