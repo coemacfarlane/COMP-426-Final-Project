@@ -56,12 +56,77 @@ function analogous() {
 // ex: HSV format (282, 74, 38) (282, 44, 90) (282, 74, 88) (282, 44, 38) (282, 74, 68)
 function monochromatic() {
   console.log("monochromatic");
+  // let baseColor = colorPicker.color[0];
+  // let h = baseColor.$.h;
+  // let s = baseColor.$.s;
+  // let v = baseColor.$.v;
+  let h = Math.floor(Math.random() * 360);
+  let s = Math.floor(Math.random() * 100);
+  let v = Math.floor(Math.random() * 100);
+  if (v < 30) {
+    v = 30;
+  }
+  let baseColor = "hsl(" + h + ", " + s + ", " + v + ")";
+
+  let colors = [];
+  colors[0] = baseColor;
+  // need checks to make sure s and v don't become negative or greater than 100
+  let v13 = v - 50;
+  let s23 = s - 30;
+  let v2 = v + 2;
+  let v4 = v - 20;
+
+  if (v13 < 30) {
+    v13 = 30;
+  }
+  if (s23 < 0) {
+    s23 = 5;
+  }
+  if (v2 > 100) {
+    v2 = 100;
+  }
+  if (v4 < 0) {
+    v4 = 5;
+  }
+  colors[1] = "hsl(" + h + "," + s + "," + v13 + ")";
+  colors[2] = "hsl(" + h + "," + s23 + "," + v2 + ")";
+  colors[3] = "hsl(" + h + "," + s23 + "," + v13 + ")";
+  colors[4] = "hsl(" + h + "," + s + "," + v4 + ")";
+  return colors;
 }
 
 // opposite hues, 3 of one hue, 2 of other hue, similar sat. and value
 // ex: HSV format (181, 80, 58) (181, 60, 100) (181, 70, 88) (23, 90, 58) (23, 70, 88)
 function complementary() {
-  console.log("complementary");
+  // console.log('complementary');
+  // let baseColor = colorPicker.color[0];
+  // let h = baseColor.$.h;
+  // let s = baseColor.$.s;
+  // let v = baseColor.$.v;
+  let h = Math.floor(Math.random() * 360);
+  let s = Math.floor(Math.random() * 100);
+  let v = Math.floor(Math.random() * 100);
+  if (s < 30) {
+    s = 30;
+  }
+  if (v < 50) {
+    v = 50;
+  }
+  let baseColor = "hsl(" + h + ", " + s + ", " + v + ")";
+
+  let colors = [];
+  colors[0] = baseColor;
+  // need checks to make sure s and v don't become negative or greater than 100
+  // need to make sure that h is between 0 and 360. also convert negative numbers to 360-
+  let h34 = h - 180;
+  if (h34 < 0) {
+    h34 = 360 + h34;
+  }
+  colors[1] = "hsl(" + h + "," + (s + 10) + "," + (v - 30) + ")";
+  colors[2] = "hsl(" + h + "," + (s - 10) + ",80)";
+  colors[3] = "hsl(" + h34 + "," + (s + 20) + "," + (v - 30) + ")";
+  colors[4] = "hsl(" + h34 + "," + s + "," + v + ")";
+  return colors;
 }
 
 // one of one hue, two hues splitting difference around opposite hue

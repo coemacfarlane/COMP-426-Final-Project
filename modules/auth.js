@@ -7,6 +7,8 @@ const setupPalettes = (data) => {
     data.forEach((doc) => {
       const palette = doc.data();
       const card = renderCard(
+        palette.name,
+        palette.creator,
         palette.color1,
         palette.color2,
         palette.color3,
@@ -17,7 +19,6 @@ const setupPalettes = (data) => {
     });
     paletteList.innerHTML = html;
   } else {
-    console.log("test");
     paletteList.innerHTML = `<p>Login to view palettes</p>`;
   }
 };
@@ -52,6 +53,7 @@ createButton.on("click", function () {
   function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
+
   function getRGB(str){
     var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
     return match ? {
@@ -62,9 +64,9 @@ createButton.on("click", function () {
   }
 
   const paletteName = document.getElementById("palette-name-field").value;
-  console.log(paletteName)
   db.collection('palettes').add({
     name: paletteName,
+    creator: currentUser,
     color1: rgbToHex(color1.red, color1.blue, color1.green),
     color2: rgbToHex(color2.red, color2.blue, color2.green),
     color3: rgbToHex(color3.red, color3.blue, color3.green),
@@ -84,27 +86,17 @@ if (document.getElementById("login-btn") != null) {
 
     // Sign up the user
     auth.signInWithEmailAndPassword(email, password).then((user) => {
-      console.log(user);
+      console.log("user signed in", user);
     });
   });
 }
 
 const logout = $("#logout-btn");
-// document.getElementById("logout-btn");
 logout.on("click", function () {
   auth.signOut().then(() => {
     console.log("User signed out");
   });
 });
-
-// console.log(logout);
-// logout.addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     auth.signOut().then(() => {
-//         console.log("User signed out")
-//     })
-// })
 
 if (document.getElementById("signup-btn-2") != null) {
   const signup = document.getElementById("signup-btn-2");
@@ -117,7 +109,7 @@ if (document.getElementById("signup-btn-2") != null) {
 
     // Sign up the user
     auth.createUserWithEmailAndPassword(email, password).then((user) => {
-      console.log(user);
+      console.log("user account created", user);
     });
   });
 }
