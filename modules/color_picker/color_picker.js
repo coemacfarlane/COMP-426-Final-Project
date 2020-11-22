@@ -55,7 +55,6 @@ function analogous() {
 // same hue, 2 with same saturation diff values, 3 with same sat. diff values
 // ex: HSV format (282, 74, 38) (282, 44, 90) (282, 74, 88) (282, 44, 38) (282, 74, 68)
 function monochromatic() {
-  console.log("monochromatic");
   // let baseColor = colorPicker.color[0];
   // let h = baseColor.$.h;
   // let s = baseColor.$.s;
