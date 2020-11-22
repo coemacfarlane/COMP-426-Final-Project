@@ -1,6 +1,27 @@
+#picker-row {
+    height: calc(100vh - 56px);
+}
+
+/* SIDEBAR */
 .side-bar {
     background: var(--light-grey);
     padding: 20px 30px !important;
+}
+
+.side-bar .btn {
+    border: 1px var(--grey) solid;
+    color: var(--dark-grey);
+    border-radius: 20px;
+}
+
+/* save palette form */
+.side-bar #palette-form {
+    border-bottom: var(--grey) 1px solid !important;
+    padding-top: 15px;
+    padding-bottom: 25px;
+
+    display: flex;
+    flex-flow: column;
 }
 
 .palette-container {
@@ -16,10 +37,24 @@
     height: 100%;
 }
 
-#picker-row {
-    height: calc(100vh - 55px);
+.side-bar .form-control {
+    background: transparent;
+    border-radius: 0;
+    border: none !important;
+    border-bottom: var(--grey) 1px solid !important;
+}
+.side-bar .form-control:focus {
+    background: transparent;
 }
 
+/* radio buttons randomize form */
+.side-bar #palette-radio-form {
+    padding-top: 25px;
+    display: flex;
+    flex-flow: column;
+}
+
+/* COLORPICKER */
 #picker {
     height: 100%;
     display: flex;
