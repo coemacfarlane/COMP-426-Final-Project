@@ -1,7 +1,4 @@
-export default function renderCard() {
-    let c1, c2, c3, c4, c5 = "#fff" ;
-    let name, creator = "test";
-
+export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
     let cardHtml = '<div class="col-md-4 card color-card">' +
         '<div class="color-container">' +
             '<div class="color" style="background: '+ c1 +';"></div>' +
