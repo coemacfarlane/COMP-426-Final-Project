@@ -16,5 +16,5 @@ export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
 }
 
 $(document).ready(function() {
-    $('head').append ('<link rel="stylesheet" href="../modules/color_card.css">');
+    $('head').append ('<link rel="stylesheet" href="../modules/color_card/color_card.css">');
 })
