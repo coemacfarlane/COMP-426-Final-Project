@@ -282,7 +282,6 @@ $(document).ready(function () {
   $("#save-palette-btn").click(function () {
     setTimeout(function () {
       $("#savedModal").modal("toggle");
-      document.getElementById("palette-tags-field").value = "";
       document.getElementById("palette-name-field").value = "";
     }, 2500);
   });
