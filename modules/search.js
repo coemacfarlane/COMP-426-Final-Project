@@ -1,6 +1,9 @@
 // thank u w3schools for teaching me comp 426 (insert upside down smiley face here)
 // https://www.w3schools.com/howto/howto_js_autocomplete.asp
 
+// this is also an option for search
+// https://firebase.google.com/docs/firestore/solutions/search 
+
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -102,7 +105,21 @@ function autocomplete(inp, arr) {
   
   /*an array with all the color values from backend*/
   // NICK PLZ HELP
-  var colors = ["#b07a57"];
+  var colors = [];
+  db.collection("palettes")
+      .get()
+      .then((snapshot) => {
+        getColors(snapshot.docs);
+
+  const getColors = (data) => {    
+    data.forEach(doc => {
+      const palette = doc.data();
+      for(var i = 0; i < 5; i++){
+        console.log('color'+(i+1));
+        colors[colors.length] = palette['color'+(i+1)];
+      }
+    });
+  };
   
   /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
   autocomplete(document.getElementById("colorSearch"), colors);
