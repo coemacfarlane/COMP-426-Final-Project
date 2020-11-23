@@ -5,7 +5,6 @@ const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
     for (let i = 0; (i < 50) && (i < data.length); i++) {
-      console.log(data[0].data())
       const palette = data[i].data();
       if(paletteList != null){
       if(paletteList.classList.contains("profile")){
