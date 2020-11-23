@@ -1,13 +1,15 @@
 import renderCard from "./color_card/color_card.js";
 
 const paletteList = document.querySelector("#root");
-const docClasses = paletteList.classList;
+// error: cannot read property 'classList' of null
+// not pushing palettes to backend
 const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
     data.forEach((doc) => {
       const palette = doc.data();
-      if(docClasses.contains("profile")){
+      if(paletteList != null){
+      if(paletteList.classList.contains("profile")){
         if (palette.creator == firebase.auth().currentUser.email) {
           const card = renderCard(
             palette.name,
@@ -32,6 +34,7 @@ const setupPalettes = (data) => {
       );
       html += card;
       }
+    }
     });
     paletteList.innerHTML = html;
   } else {
