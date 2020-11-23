@@ -4,10 +4,9 @@ const paletteList = document.querySelector("#root");
 const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
-   // let count = 0;
-    data.forEach((doc) => {
-    //  count++;
-      const palette = doc.data();
+    for (let i = 0; (i < 50) && (i < data.length); i++) {
+      console.log(data[0].data())
+      const palette = data[i].data();
       if(paletteList != null){
       if(paletteList.classList.contains("profile")){
         if (palette.creator == firebase.auth().currentUser.email) {
@@ -23,12 +22,6 @@ const setupPalettes = (data) => {
         html += card;
       }
       } else {
-        /*
-        if(count > 50){break;}
-        break statement in for each is illegal
-        this may be problematic on explore page if a lot of color palettes are generated
-        it will show every single one which may take a minute to load
-        */
         const card = renderCard(
           palette.name,
           palette.creator,
@@ -41,7 +34,7 @@ const setupPalettes = (data) => {
       html += card;
       }
     }
-    });
+    };
     paletteList.innerHTML = html;
   } else {
     paletteList.innerHTML = `<p>Login to view palettes</p>`;
@@ -142,6 +135,7 @@ if (document.getElementById("signup-btn-2") != null) {
     // Sign up the user
     auth.createUserWithEmailAndPassword(email, password).then((user) => {
       console.log("user account created", user);
+      window.location.href = "./profile.html";
     });
   });
 }
