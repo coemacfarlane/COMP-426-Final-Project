@@ -6,7 +6,8 @@ const setupPalettes = (data) => {
     let html = "";
     data.forEach((doc) => {
       const palette = doc.data();
-      if (palette.creator == firebase.auth().currentUser.email) {
+      // by taking this if-statement out, all the palettes in the database show up
+      //if (palette.creator == firebase.auth().currentUser.email) {
         const card = renderCard(
           palette.name,
           palette.creator,
@@ -17,7 +18,7 @@ const setupPalettes = (data) => {
           palette.color5
         );
         html += card;
-      }
+     // }
     });
     paletteList.innerHTML = html;
   } else {
