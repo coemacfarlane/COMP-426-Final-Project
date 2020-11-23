@@ -22,6 +22,8 @@ function buildDocHead() {
     $('head').append ('<script type="module" src="../modules/scroll_listener.js"></script>');
     $('head').append ('<script type="module" src="../modules/color_card/color_card.js"></script>');
     $('head').append ('<script type="module" src="../modules/auth.js"></script>');
+    $('head').append ('<script type="module" src="../modules/search.js"></script>');
+
 }
 
 $(document).ready(function () {
