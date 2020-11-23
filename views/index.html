@@ -39,8 +39,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Search form -->
-                    <form class="form-inline search-wrap">
-                        <input class="form-control form-control-md mr-3" type="text" placeholder="Search"
+                    <form autocomplete = "off" class="form-inline search-wrap">
+                        <input id = "colorSearch" class="form-control form-control-md mr-3" style = "position: relative;" type="text" placeholder="Search by HEX code"
                         aria-label="Search">
                         <i class="fas fa-search" aria-hidden="true"></i>
                     </form>
@@ -50,7 +50,7 @@
         <!-- end search bar -->
         <!-- start content -->
         <div class="container">
-            <div class="row" id="root">
+            <div class="row explore" id="root">
             </div>
         </div>
         <!-- end content -->

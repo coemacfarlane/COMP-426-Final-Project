@@ -62,9 +62,7 @@ function monochromatic() {
   let h = Math.floor(Math.random() * 360);
   let s = Math.floor(Math.random() * 100);
   let v = Math.floor(Math.random() * 100);
-  if (v < 30) {
-    v = 30;
-  }
+  if (v < 30) {v = 30;}
   let baseColor = "hsl(" + h + ", " + s + ", " + v + ")";
 
   let colors = [];
@@ -75,18 +73,10 @@ function monochromatic() {
   let v2 = v + 2;
   let v4 = v - 20;
 
-  if (v13 < 30) {
-    v13 = 30;
-  }
-  if (s23 < 0) {
-    s23 = 5;
-  }
-  if (v2 > 100) {
-    v2 = 100;
-  }
-  if (v4 < 0) {
-    v4 = 5;
-  }
+  if (v13 < 30) {v13 = 30;}
+  if (s23 < 0) {s23 = 5;}
+  if (v2 > 100) {v2 = 100;}
+  if (v4 < 0) {v4 = 5;}
   colors[1] = "hsl(" + h + "," + s + "," + v13 + ")";
   colors[2] = "hsl(" + h + "," + s23 + "," + v2 + ")";
   colors[3] = "hsl(" + h + "," + s23 + "," + v13 + ")";
@@ -105,12 +95,8 @@ function complementary() {
   let h = Math.floor(Math.random() * 360);
   let s = Math.floor(Math.random() * 100);
   let v = Math.floor(Math.random() * 100);
-  if (s < 30) {
-    s = 30;
-  }
-  if (v < 50) {
-    v = 50;
-  }
+  if (s < 30) {s = 30;}
+  if (v < 50) {v = 50;}
   let baseColor = "hsl(" + h + ", " + s + ", " + v + ")";
 
   let colors = [];
@@ -296,11 +282,15 @@ $(document).ready(function () {
   $("#save-palette-btn").click(function () {
     setTimeout(function () {
       $("#savedModal").modal("toggle");
-      document.getElementById("palette-tags-field").value = "";
       document.getElementById("palette-name-field").value = "";
     }, 2500);
   });
 
   // -------- GENERATING NEW COLOR PALETTE --------
   $("#color-generate-btn").on("click", generateNewPalette);
+
+  // When color on wheel changes, print index of color changed
+  colorPicker.on('color:change', function(color) {
+    console.log('color changed:', color.$);
+});
 });

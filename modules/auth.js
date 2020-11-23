@@ -4,9 +4,23 @@ const paletteList = document.querySelector("#root");
 const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
-    data.forEach((doc) => {
-      const palette = doc.data();
-      if (palette.creator == firebase.auth().currentUser.email) {
+    for (let i = 0; (i < 50) && (i < data.length); i++) {
+      const palette = data[i].data();
+      if(paletteList != null){
+      if(paletteList.classList.contains("profile")){
+        if (palette.creator == firebase.auth().currentUser.email) {
+          const card = renderCard(
+            palette.name,
+            palette.creator,
+            palette.color1,
+            palette.color2,
+            palette.color3,
+            palette.color4,
+            palette.color5
+        );
+        html += card;
+      }
+      } else {
         const card = renderCard(
           palette.name,
           palette.creator,
@@ -15,10 +29,11 @@ const setupPalettes = (data) => {
           palette.color3,
           palette.color4,
           palette.color5
-        );
-        html += card;
+      );
+      html += card;
       }
-    });
+    }
+    };
     paletteList.innerHTML = html;
   } else {
     paletteList.innerHTML = `<p>Login to view palettes</p>`;
@@ -119,6 +134,7 @@ if (document.getElementById("signup-btn-2") != null) {
     // Sign up the user
     auth.createUserWithEmailAndPassword(email, password).then((user) => {
       console.log("user account created", user);
+      window.location.href = "./profile.html";
     });
   });
 }
