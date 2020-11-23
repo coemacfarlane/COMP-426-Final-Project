@@ -1,13 +1,26 @@
 import renderCard from "./color_card/color_card.js";
 
 const paletteList = document.querySelector("#root");
+const docClasses = paletteList.classList;
 const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
     data.forEach((doc) => {
       const palette = doc.data();
-      // by taking this if-statement out, all the palettes in the database show up
-      //if (palette.creator == firebase.auth().currentUser.email) {
+      if(docClasses.contains("profile")){
+        if (palette.creator == firebase.auth().currentUser.email) {
+          const card = renderCard(
+            palette.name,
+            palette.creator,
+            palette.color1,
+            palette.color2,
+            palette.color3,
+            palette.color4,
+            palette.color5
+        );
+        html += card;
+      }
+      } else {
         const card = renderCard(
           palette.name,
           palette.creator,
@@ -16,9 +29,9 @@ const setupPalettes = (data) => {
           palette.color3,
           palette.color4,
           palette.color5
-        );
-        html += card;
-     // }
+      );
+      html += card;
+      }
     });
     paletteList.innerHTML = html;
   } else {
