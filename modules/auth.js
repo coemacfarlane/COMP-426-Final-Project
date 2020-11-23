@@ -1,12 +1,12 @@
 import renderCard from "./color_card/color_card.js";
 
 const paletteList = document.querySelector("#root");
-// error: cannot read property 'classList' of null
-// not pushing palettes to backend
 const setupPalettes = (data) => {
   if (data.length) {
     let html = "";
+   // let count = 0;
     data.forEach((doc) => {
+    //  count++;
       const palette = doc.data();
       if(paletteList != null){
       if(paletteList.classList.contains("profile")){
@@ -23,6 +23,12 @@ const setupPalettes = (data) => {
         html += card;
       }
       } else {
+        /*
+        if(count > 50){break;}
+        break statement in for each is illegal
+        this may be problematic on explore page if a lot of color palettes are generated
+        it will show every single one which may take a minute to load
+        */
         const card = renderCard(
           palette.name,
           palette.creator,
