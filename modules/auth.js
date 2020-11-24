@@ -97,6 +97,17 @@ createButton.on("click", function () {
   // }
 });
 
+const deleteButton = $(".delete-btn");
+const palName = deleteButton.getAttribute("data-id");
+deleteButton.on("click", function () {
+  console.log("delete clicked");
+  db.collection("palettes").doc(palName).delete().then(function () {
+    console.log("Document successfully deleted!");
+  }).catch(function (error) {
+    console.error("Error removing document: ", error);
+  })
+});
+
 /*
 delete button.on("click", function (){
   db.collection("palettes").doc("name of file?").delete().then(function() {
