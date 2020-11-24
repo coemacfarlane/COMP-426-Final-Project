@@ -2,9 +2,8 @@ export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
     let cardHtml = '<div class="col-md-4 card color-card">' +
         '<div class="color-container">';
     
-    let user = true; // TEMPORARY
-    if (user) {
-        cardHtml += '<button class="btn delete-btn"><i class="fas fa-trash"></i></button>';
+    if (creator == firebase.auth().currentUser.email) {
+        cardHtml += `<button class="btn delete-btn" id = "delete-btn" data-id = "${name}"><i class="fas fa-trash"></i></button>`;
     }
             
     cardHtml += '<div class="color" style="background: '+ c1 +';"></div>' +

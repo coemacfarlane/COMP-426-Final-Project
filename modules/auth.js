@@ -63,6 +63,16 @@ createButton.on("click", function () {
   const color4 = $("#color-4").css("background-color");
   const color5 = $("#color-5").css("background-color");
 
+  const paletteName = document.getElementById("palette-name-field").value;
+  db.collection("palettes").add({
+    name: paletteName,
+    creator: firebase.auth().currentUser.email,
+    color1: color1,
+    color2: color2,
+    color3: color3,
+    color4: color4,
+    color5: color5,
+  });
   // function componentToHex(c) {
   //   const num = parseInt(c);
   //   const hex = num.toString(16);
@@ -85,18 +95,31 @@ createButton.on("click", function () {
   //       }
   //     : {};
   // }
-
-  const paletteName = document.getElementById("palette-name-field").value;
-  db.collection("palettes").add({
-    name: paletteName,
-    creator: firebase.auth().currentUser.email,
-    color1: color1,
-    color2: color2,
-    color3: color3,
-    color4: color4,
-    color5: color5,
-  });
 });
+
+const deleteButton = $("#delete-btn");
+//const palName = deleteButton.getAttribute("data-id");
+deleteButton.on("click", function (event) {
+  const palName = event.currentTarget.getAttribute("data-id");
+  console.log("delete clicked");
+  console.log(palName);
+  
+  db.collection("palettes").doc(palName).delete().then(function () {
+    console.log("Document successfully deleted!");
+  }).catch(function (error) {
+    console.error("Error removing document: ", error);
+  })
+});
+
+/*
+delete button.on("click", function (){
+  db.collection("palettes").doc("name of file?").delete().then(function() {
+    console.log("Document successfully deleted!");
+}).catch(function(error) {
+    console.error("Error removing document: ", error);
+});
+})
+*/
 
 if (document.getElementById("login-btn") != null) {
   const login = document.getElementById("login-btn");
