@@ -57,44 +57,44 @@ auth.onAuthStateChanged((user) => {
 const createButton = $("#save-palette-btn");
 createButton.on("click", function () {
   event.preventDefault();
-  const color1 = getRGB($("#color-1").css("background-color"));
-  const color2 = getRGB($("#color-2").css("background-color"));
-  const color3 = getRGB($("#color-3").css("background-color"));
-  const color4 = getRGB($("#color-4").css("background-color"));
-  const color5 = getRGB($("#color-5").css("background-color"));
+  const color1 = $("#color-1").css("background-color");
+  const color2 = $("#color-2").css("background-color");
+  const color3 = $("#color-3").css("background-color");
+  const color4 = $("#color-4").css("background-color");
+  const color5 = $("#color-5").css("background-color");
 
-  function componentToHex(c) {
-    const num = parseInt(c);
-    const hex = num.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-  }
+  // function componentToHex(c) {
+  //   const num = parseInt(c);
+  //   const hex = num.toString(16);
+  //   return hex.length == 1 ? "0" + hex : hex;
+  // }
 
-  function rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-  }
+  // function rgbToHex(r, g, b) {
+  //   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  // }
 
-  function getRGB(str) {
-    var match = str.match(
-      /rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/
-    );
-    return match
-      ? {
-          red: match[1],
-          green: match[2],
-          blue: match[3],
-        }
-      : {};
-  }
+  // function getRGB(str) {
+  //   var match = str.match(
+  //     /rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/
+  //   );
+  //   return match
+  //     ? {
+  //         red: match[1],
+  //         green: match[2],
+  //         blue: match[3],
+  //       }
+  //     : {};
+  // }
 
   const paletteName = document.getElementById("palette-name-field").value;
   db.collection("palettes").add({
     name: paletteName,
     creator: firebase.auth().currentUser.email,
-    color1: rgbToHex(color1.red, color1.blue, color1.green),
-    color2: rgbToHex(color2.red, color2.blue, color2.green),
-    color3: rgbToHex(color3.red, color3.blue, color3.green),
-    color4: rgbToHex(color4.red, color4.blue, color4.green),
-    color5: rgbToHex(color5.red, color5.blue, color5.green),
+    color1: color1,
+    color2: color2,
+    color3: color3,
+    color4: color4,
+    color5: color5,
   });
 });
 
