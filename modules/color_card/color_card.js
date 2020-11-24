@@ -3,7 +3,7 @@ export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
         '<div class="color-container">';
     
     if (creator == firebase.auth().currentUser.email) {
-        cardHtml += `<button class="btn delete-btn" data-id = "${name}"><i class="fas fa-trash"></i></button>`;
+        cardHtml += `<button class="btn delete-btn" id = "delete-btn" data-id = "${name}"><i class="fas fa-trash"></i></button>`;
     }
             
     cardHtml += '<div class="color" style="background: '+ c1 +';"></div>' +

@@ -97,10 +97,13 @@ createButton.on("click", function () {
   // }
 });
 
-const deleteButton = $(".delete-btn");
-const palName = deleteButton.getAttribute("data-id");
-deleteButton.on("click", function () {
+const deleteButton = $("#delete-btn");
+//const palName = deleteButton.getAttribute("data-id");
+deleteButton.on("click", function (event) {
+  const palName = event.currentTarget.getAttribute("data-id");
   console.log("delete clicked");
+  console.log(palName);
+  
   db.collection("palettes").doc(palName).delete().then(function () {
     console.log("Document successfully deleted!");
   }).catch(function (error) {
