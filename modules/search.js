@@ -14,7 +14,6 @@ function getColors(data) {
   data.forEach(doc => {
     const palette = doc.data();
     for (var i = 0; i < 5; i++) {
-      console.log('color' + (i + 1));
       colors[colors.length] = palette['color' + (i + 1)];
     }
   });
