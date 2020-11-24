@@ -1,1 +1,1 @@
-web: node ./modules/headblade.js
+web: ./views/index.html
