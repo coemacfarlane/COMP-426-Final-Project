@@ -1,4 +1,5 @@
 # Color Picker
+Website that allows users to create their own custom color palettes and view the palettes of other creators.
 ## Table of Contents
 * [General Info](#general-info)
 * [Authentication](#authentication)
@@ -18,9 +19,9 @@
 ## Palette Randomizer
 This tool is displyed at the bottom of the palette creation page. It has 5 main functionalities.
 + Random: This generates a complete random set of colors for the palette. This functionality is generally not recommended to be used as a complete palette.
-+ Analogous:
-+ Monochromatic:
-+ Complementary:
-+ Split Complementary:
++ Analogous: Analogous colors are groups of three colors that are adjacent to each other on the color wheel. Using the analogous randomization feature will produce an analogous color palette. 
++ Monochromatic: Monochromatic colors are the tones, tints or shades of a single hue. Using the monochromatic randomization feature will produce a monochromatic color palette.
++ Complementary: Complementary color are two colors that when combined will cancel out to produce a grayscale color. Using the complementary randomization feature will produce a complementary color palette.
++ Split Complementary: Split complementary colors are three colors that when combined will cancel out to produce a greyscale color. Using the split monochromatic randomization feature will produce a split monochromatic color palette.
 
 
