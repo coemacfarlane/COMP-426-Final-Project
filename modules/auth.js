@@ -97,7 +97,8 @@ createButton.on("click", function () {
   // }
 });
 
-const deleteButton = $("#delete-btn");
+const deleteButton = $(".delete-btn");
+console.log($(".color-container"))
 //const palName = deleteButton.getAttribute("data-id");
 deleteButton.on("click", function (event) {
   const palName = event.currentTarget.getAttribute("data-id");

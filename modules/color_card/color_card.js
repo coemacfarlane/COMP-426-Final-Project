@@ -3,7 +3,7 @@ export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
         '<div class="color-container">';
     
     if (creator == firebase.auth().currentUser.email) {
-        cardHtml += `<button class="btn delete-btn" id = "delete-btn" data-id = "${name}"><i class="fas fa-trash"></i></button>`;
+        cardHtml += `<button type="button" class="btn delete-btn" id = "delete-btn" data-id = "${name}"><i class="fas fa-trash"></i></button>`;
     }
             
     cardHtml += '<div class="color" style="background: '+ c1 +';"></div>' +
@@ -22,4 +22,5 @@ export default function renderCard(name, creator, c1, c2, c3, c4, c5) {
 
 $(document).ready(function() {
     $('head').append ('<link rel="stylesheet" href="../modules/color_card/color_card.css">');
+    console.log($(".color-container"))
 })

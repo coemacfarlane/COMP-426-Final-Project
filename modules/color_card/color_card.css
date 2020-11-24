@@ -47,9 +47,9 @@
     color: white;
     display: none;
 }
-.color-card:hover .delete-btn {
+/* .color-card:hover .delete-btn {
     display: block;
-}
+} */
 .delete-btn:hover {
     background-color: black;
     color: white;
